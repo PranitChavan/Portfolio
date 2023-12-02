@@ -1,0 +1,24 @@
+#root {
+  text-align: center;
+  margin-top: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  background-image: url('./assets/imgs/batman_main.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.hero__nav {
+  display: flex;
+}
+
+.hero__nav--link {
+}
