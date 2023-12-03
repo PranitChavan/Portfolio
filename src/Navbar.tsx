@@ -42,7 +42,7 @@ export function Navbar() {
           component="a"
           href="#app-bar-with-responsive-menu"
           sx={{
-            mr: 170,
+            mr: 140,
             display: { xs: 'none', md: 'flex' },
             fontFamily: 'monospace',
             fontWeight: 1000,

@@ -7,11 +7,11 @@ function App() {
   return (
     <>
       <div className="hero">
-        <Container className="red" disableGutters={true} style={{ maxWidth: '1705px', height: '100vh' }}>
+        <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
           <Navbar />
-          <Typography variant="h1" component="h2" style={{ color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          {/* <Typography variant="h1" component="h2" style={{ color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             gaurav
-          </Typography>
+          </Typography> */}
         </Container>
       </div>
     </>
