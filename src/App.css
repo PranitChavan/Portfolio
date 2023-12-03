@@ -3,10 +3,8 @@
   margin-top: 0;
 }
 
-.container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+li {
+  list-style: none;
 }
 
 .hero {
@@ -14,11 +12,4 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
-}
-
-.hero__nav {
-  display: flex;
-}
-
-.hero__nav--link {
 }

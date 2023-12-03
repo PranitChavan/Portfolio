@@ -1,19 +1,18 @@
 import './App.css';
+import Container from '@mui/material/Container';
+import Navbar from './Navbar';
+import Typography from '@mui/material/Typography';
 
 function App() {
   return (
     <>
       <div className="hero">
-        <div className="container">
-          <nav className="hero__nav">
-            <h1>adad</h1>
-            <ul className="hero__nav--link">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-            </ul>
-          </nav>
-        </div>
+        <Container className="red" disableGutters={true} style={{ maxWidth: '1705px', height: '100vh' }}>
+          <Navbar />
+          <Typography variant="h1" component="h2" style={{ color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            gaurav
+          </Typography>
+        </Container>
       </div>
     </>
   );
