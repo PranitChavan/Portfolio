@@ -6,49 +6,48 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import Button from '@mui/material/Button';
-
 import MenuItem from '@mui/material/MenuItem';
 
 const pages = ['ILLUSTRATION', 'ABOUT'];
 
 export function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  //  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
   return (
-    <AppBar position="static" color="transparent" style={{ boxShadow: 'none', paddingTop: '25px' }}>
+    <AppBar position="static" color="transparent" style={{ boxShadow: 'none', paddingTop: '25px' }} className="fade-in">
       <Toolbar disableGutters>
         {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
         <Typography
+          className="fade-in"
           variant="h6"
           noWrap
           component="a"
           href="#app-bar-with-responsive-menu"
           sx={{
-            mr: 140,
+            mr: 10,
             display: { xs: 'none', md: 'flex' },
             fontFamily: 'monospace',
             fontWeight: 1000,
             color: 'white',
             textDecoration: 'none',
-            fontSize: '40px',
+            fontSize: '25px',
           }}
         >
           gaurav
@@ -103,7 +102,7 @@ export function Navbar() {
         >
           gaurav
         </Typography>
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           {pages.map((page) => (
             <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
               {page}
