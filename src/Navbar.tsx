@@ -31,11 +31,10 @@ export function Navbar() {
   // };
 
   return (
-    <AppBar position="static" color="transparent" style={{ boxShadow: 'none', paddingTop: '25px' }} className="fade-in">
+    <AppBar position="static" color="transparent" style={{ boxShadow: 'none', paddingTop: '25px' }}>
       <Toolbar disableGutters>
         {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
         <Typography
-          className="fade-in"
           variant="h6"
           noWrap
           component="a"
