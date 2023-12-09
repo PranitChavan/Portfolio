@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,11 +8,14 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import BasicMenu from './Menu';
 
 const pages = ['ILLUSTRATION', 'ABOUT'];
 
+const mobilePages = ['Portraits', 'Backgrounds', 'About'];
+
 export function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   //  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -38,7 +41,7 @@ export function Navbar() {
           variant="h6"
           noWrap
           component="a"
-          href="#app-bar-with-responsive-menu"
+          href="/"
           sx={{
             mr: 10,
             display: { xs: 'none', md: 'flex' },
@@ -49,7 +52,7 @@ export function Navbar() {
             fontSize: '25px',
           }}
         >
-          gaurav
+          gaurav dal
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -74,7 +77,7 @@ export function Navbar() {
               display: { xs: 'block', md: 'none' },
             }}
           >
-            {pages.map((page) => (
+            {mobilePages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">{page}</Typography>
               </MenuItem>
@@ -99,12 +102,12 @@ export function Navbar() {
           }}
           style={{ textAlign: 'center' }}
         >
-          gaurav
+          gaurav dal
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           {pages.map((page) => (
             <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-              {page}
+              <BasicMenu page={page} />
             </Button>
           ))}
         </Box>

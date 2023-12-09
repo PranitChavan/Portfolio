@@ -1,38 +1,47 @@
 import './App.css';
 import Container from '@mui/material/Container';
 import Navbar from './Navbar';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
 import MasonryImageList from './ImageList';
-import { Fade, Bounce, Flip, Hinge, JackInTheBox, Roll, Slide, Zoom } from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
+import { ContextProvider } from './Context';
+import { Landing } from './Landing';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+const allImages = Object.values(import.meta.glob('./assets/imgs/all/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
+//const portraits = Object.values(import.meta.glob('./assets/imgs/portraits/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
+
+const itemData: any = [];
+
+allImages.forEach((url) => {
+  itemData.push({ img: url, title: 'ada' });
+});
+
+// portraits.forEach((url) => {
+//   itemData.push({ img: url, title: 'ada' });
+// });
 
 function App() {
   return (
     <>
-      <div className="hero">
-        <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
-          <Fade>
-            <Navbar />
-          </Fade>
-
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '70vh', flexDirection: 'column' }}>
-            <Typography variant="h2" style={{ color: 'white' }}>
-              gaurav
-            </Typography>
-
-            <Fade direction="left">
-              <ul style={{ display: 'flex', flexDirection: 'row', gap: '10px', marginTop: '10px' }} className="skills">
-                <li>CONCEPT</li>
-                <li>DESIGN</li>
-                <li>ILLUSTRATION</li>
-              </ul>
+      <Router>
+        <div className="hero">
+          <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
+            <Fade delay={500}>
+              <Navbar />
             </Fade>
-          </Box>
-        </Container>
-      </div>
-      <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
-        <MasonryImageList />
-      </Container>
+
+            <Routes>
+              <Route path="/" element={<Landing />}></Route>
+            </Routes>
+          </Container>
+        </div>
+
+        <ContextProvider>
+          <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
+            <MasonryImageList images={itemData} />
+          </Container>
+        </ContextProvider>
+      </Router>
     </>
   );
 }
