@@ -4,6 +4,6 @@
   box-sizing: border-box;
 }
 
-.heading {
-  display: none;
+body {
+  background-color: #1d1d23;
 }

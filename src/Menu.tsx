@@ -2,11 +2,12 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function BasicMenu(props: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const url = useLocation();
 
   const open = Boolean(anchorEl);
 
@@ -30,9 +31,17 @@ export default function BasicMenu(props: any) {
     setAnchorEl(null);
   };
 
+  let underline = false;
+
+  if ((url.pathname === '/portraits' || url.pathname === '/backgrounds') && props.page === 'ILLUSTRATION') {
+    underline = true;
+  } else {
+    underline = false;
+  }
+
   return (
     <div>
-      <Button sx={{ color: 'white' }} id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
+      <Button sx={{ color: 'white', textDecoration: underline ? 'underline' : '', textUnderlineOffset: '0.5rem' }} id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
         {props.page}
       </Button>
       <Menu

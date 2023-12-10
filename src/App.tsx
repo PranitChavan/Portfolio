@@ -1,46 +1,27 @@
 import './App.css';
-import Container from '@mui/material/Container';
-import Navbar from './Navbar';
-import MasonryImageList from './ImageList';
-import { Fade } from 'react-awesome-reveal';
 import { ContextProvider } from './Context';
 import { Landing } from './Landing';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-const allImages = Object.values(import.meta.glob('./assets/imgs/all/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
-//const portraits = Object.values(import.meta.glob('./assets/imgs/portraits/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
-
-const itemData: any = [];
-
-allImages.forEach((url) => {
-  itemData.push({ img: url, title: 'ada' });
-});
-
-// portraits.forEach((url) => {
-//   itemData.push({ img: url, title: 'ada' });
-// });
+import { Portraits } from './Portraits';
+import Backgrounds from './Backgrounds';
 
 function App() {
   return (
     <>
       <Router>
-        <div className="hero">
-          <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
-            <Fade delay={500}>
-              <Navbar />
-            </Fade>
+        <Routes>
+          <Route path="/" element={<Landing />}></Route>
+        </Routes>
 
-            <Routes>
-              <Route path="/" element={<Landing />}></Route>
-            </Routes>
-          </Container>
-        </div>
+        <Routes>
+          <Route path="/portraits" element={<Portraits />}></Route>
+        </Routes>
 
-        <ContextProvider>
-          <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
-            <MasonryImageList images={itemData} />
-          </Container>
-        </ContextProvider>
+        <Routes>
+          <Route path="/backgrounds" element={<Backgrounds />}></Route>
+        </Routes>
+
+        <ContextProvider></ContextProvider>
       </Router>
     </>
   );

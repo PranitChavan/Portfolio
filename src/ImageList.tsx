@@ -3,12 +3,44 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { Fade } from 'react-awesome-reveal';
 
+import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useEffect, useState } from 'react';
+
+const theme = createTheme();
+
+export function ThemeHelper() {
+  return (
+    <ThemeProvider theme={theme}>
+      <MasonryImageList />
+    </ThemeProvider>
+  );
+}
+
 export default function MasonryImageList(props: any) {
   const images = props.images;
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  const src: string = props.src;
+
+  const [cols, setCols] = useState(props.cols);
+
+  useEffect(() => {
+    console.log(matches);
+    if (!matches) {
+      if (src != 'backgrounds') {
+        setCols(2);
+      } else {
+        setCols(1);
+      }
+    } else {
+      setCols(props.cols);
+    }
+  }, [matches]);
 
   return (
     <Box sx={{ width: 1, height: 1, mt: 2 }}>
-      <ImageList variant="masonry" cols={3} gap={8}>
+      <ImageList variant="masonry" cols={cols} gap={8}>
         {images.map((item: any) => (
           <Fade direction="down" triggerOnce>
             <ImageListItem key={item.img}>

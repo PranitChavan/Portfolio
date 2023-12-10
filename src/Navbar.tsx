@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import BasicMenu from './Menu';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['ILLUSTRATION', 'ABOUT'];
 
@@ -16,6 +17,8 @@ const mobilePages = ['Portraits', 'Backgrounds', 'About'];
 
 export function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
+
   //  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -25,8 +28,20 @@ export function Navbar() {
   //   setAnchorElUser(event.currentTarget);
   // };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event: any) => {
     setAnchorElNav(null);
+
+    const page = event.target.innerText;
+
+    if (page === 'Portraits') {
+      navigate('/portraits');
+    }
+
+    if (page === 'Backgrounds') {
+      navigate('/backgrounds');
+    }
+
+    console.log(event.target.innerText);
   };
 
   // const handleCloseUserMenu = () => {
@@ -89,7 +104,7 @@ export function Navbar() {
           variant="h5"
           noWrap
           component="a"
-          href="#app-bar-with-responsive-menu"
+          href="/"
           sx={{
             mr: 2,
             display: { xs: 'flex', md: 'none' },
@@ -106,7 +121,7 @@ export function Navbar() {
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           {pages.map((page) => (
-            <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+            <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'underline' }}>
               <BasicMenu page={page} />
             </Button>
           ))}
