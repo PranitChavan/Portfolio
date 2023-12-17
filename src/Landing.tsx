@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import { Fade } from 'react-awesome-reveal';
 import MasonryImageList from './ImageList';
 import { Container } from '@mui/material';
+import Footer from './Footer';
 
 const allImages = Object.values(import.meta.glob('./assets/imgs/all/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
 
@@ -18,17 +19,17 @@ export function Landing() {
   return (
     <>
       <div className="hero">
-        <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
+        <Container disableGutters={true} maxWidth={'xl'} style={{ height: '100vh' }}>
           <Fade delay={500}>
             <Navbar />
           </Fade>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '70vh', flexDirection: 'column' }}>
-            <Typography variant="h2" style={{ color: 'white' }}>
+            <Typography variant="h1" style={{ color: '#FAFAFA', fontSize: '3em' }}>
               gaurav dal
             </Typography>
 
             <Fade direction="left" delay={1000} duration={500}>
-              <ul style={{ display: 'flex', flexDirection: 'row', gap: '5px', marginTop: '10px' }} className="skills">
+              <ul style={{ display: 'flex', flexDirection: 'row', gap: '5px', marginTop: '10px', color: '#FAFAFA' }} className="skills">
                 <li>ILLUSTRATION</li>
                 <li>x</li>
                 <li>CONCEPT</li>
@@ -40,9 +41,11 @@ export function Landing() {
         </Container>
       </div>
 
-      <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
+      <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px' }}>
         <MasonryImageList images={itemData} cols={3} src={'main'} />
       </Container>
+
+      <Footer />
     </>
   );
 }

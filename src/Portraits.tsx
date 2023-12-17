@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import { Container } from '@mui/material';
 import { Fade } from 'react-awesome-reveal';
 import MasonryImageList from './ImageList';
+import { useEffect } from 'react';
 
 const portraits = Object.values(import.meta.glob('./assets/imgs/portraits/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' }));
 
@@ -12,6 +13,10 @@ portraits.forEach((url) => {
 });
 
 export function Portraits() {
+  useEffect(() => {
+    document.title = 'PORTRAITS — gaurav dal';
+  });
+
   return (
     <>
       <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>

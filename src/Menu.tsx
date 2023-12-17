@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './Menu.css';
 
 export default function BasicMenu(props: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -41,11 +42,10 @@ export default function BasicMenu(props: any) {
 
   return (
     <div>
-      <Button sx={{ color: 'white', textDecoration: underline ? 'underline' : '', textUnderlineOffset: '0.5rem' }} id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
+      <Button sx={{ color: '#FAFAFA', textDecoration: underline ? 'underline' : '', textUnderlineOffset: '0.5rem' }} id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
         {props.page}
       </Button>
       <Menu
-        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}

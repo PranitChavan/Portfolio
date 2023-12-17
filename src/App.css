@@ -7,15 +7,11 @@ li {
   list-style: none;
 }
 
-.skills li:nth-child(1) {
-  margin-left: -26px;
-}
-
 .hero {
   background-image: url('./assets/imgs/batman_main.jpg');
   background-size: cover;
-  background-position: center;
-  height: 100vh;
+  /* background-position: center; */
+  height: 100dvh;
 }
 
 .skills {

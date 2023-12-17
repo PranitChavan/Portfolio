@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import BasicMenu from './Menu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const pages = ['ILLUSTRATION', 'ABOUT'];
 
@@ -18,6 +18,7 @@ const mobilePages = ['Portraits', 'Backgrounds', 'About'];
 export function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const url = useLocation();
 
   //  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -48,6 +49,14 @@ export function Navbar() {
   //   setAnchorElUser(null);
   // };
 
+  let underline = false;
+
+  if (url.pathname === '/portraits' || url.pathname === '/backgrounds') {
+    underline = true;
+  } else {
+    underline = false;
+  }
+
   return (
     <AppBar position="static" color="transparent" style={{ boxShadow: 'none', paddingTop: '25px' }}>
       <Toolbar disableGutters>
@@ -62,7 +71,7 @@ export function Navbar() {
             display: { xs: 'none', md: 'flex' },
             fontFamily: 'monospace',
             fontWeight: 1000,
-            color: 'white',
+            color: '#FAFAFA',
             textDecoration: 'none',
             fontSize: '25px',
           }}
@@ -71,7 +80,7 @@ export function Navbar() {
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-          <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} style={{ color: 'white' }}>
+          <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} style={{ color: '#FAFAFA' }}>
             <MenuIcon />
           </IconButton>
           <Menu
@@ -112,7 +121,7 @@ export function Navbar() {
             fontFamily: 'monospace',
             fontWeight: 700,
             letterSpacing: '.3rem',
-            color: 'white',
+            color: '#FAFAFA',
             textDecoration: 'none',
           }}
           style={{ textAlign: 'center' }}
@@ -121,7 +130,7 @@ export function Navbar() {
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           {pages.map((page) => (
-            <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'underline' }}>
+            <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: '#FAFAFA', display: 'block', textDecoration: 'underline' }}>
               <BasicMenu page={page} />
             </Button>
           ))}

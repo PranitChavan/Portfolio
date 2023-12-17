@@ -6,6 +6,7 @@ import { Fade } from 'react-awesome-reveal';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useEffect, useState } from 'react';
+import Footer from './Footer';
 
 const theme = createTheme();
 
@@ -26,7 +27,6 @@ export default function MasonryImageList(props: any) {
   const [cols, setCols] = useState(props.cols);
 
   useEffect(() => {
-    console.log(matches);
     if (!matches) {
       if (src != 'backgrounds') {
         setCols(2);

@@ -1,9 +1,9 @@
 import './App.css';
-import { ContextProvider } from './Context';
 import { Landing } from './Landing';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Portraits } from './Portraits';
 import Backgrounds from './Backgrounds';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -20,8 +20,6 @@ function App() {
         <Routes>
           <Route path="/backgrounds" element={<Backgrounds />}></Route>
         </Routes>
-
-        <ContextProvider></ContextProvider>
       </Router>
     </>
   );

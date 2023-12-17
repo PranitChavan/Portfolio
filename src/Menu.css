@@ -1,0 +1,16 @@
+/* .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  background-color: #09090b !important;
+}
+
+.css-1uwgr7b-MuiTypography-root {
+  color: #fafafa !important;
+} */
+
+.MuiMenu-list {
+  background-color: #09090b;
+  color: #fafafa;
+}
+
+/* .MuiMenu-root {
+  background-color: red;
+} */
