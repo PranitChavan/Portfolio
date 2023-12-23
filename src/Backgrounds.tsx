@@ -15,11 +15,11 @@ portraits.forEach((url) => {
 export default function Backgrounds() {
   useEffect(() => {
     document.title = 'BACKGROUNDS — gaurav dal';
-  });
+  }, []);
 
   return (
     <>
-      <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px', height: '100vh' }}>
+      <Container className="container" disableGutters={true} maxWidth={'xl'}>
         <Fade delay={500} triggerOnce={true}>
           <Navbar />
         </Fade>

@@ -22,3 +22,15 @@ li {
   color: white;
   font-size: 14px;
 }
+
+.container {
+  width: 100% !important;
+  max-width: 1449px !important;
+}
+
+/* @media (min-width: 900px) and (max-width: 1463px) {
+  .container {
+    width: 100% !important;
+    max-width: 1400px !important;
+  }
+} */

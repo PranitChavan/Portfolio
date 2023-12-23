@@ -19,7 +19,7 @@ export function Landing() {
   return (
     <>
       <div className="hero">
-        <Container disableGutters={true} maxWidth={'xl'} style={{ height: '100vh' }}>
+        <Container className="container" disableGutters={true} maxWidth={'xl'}>
           <Fade delay={500}>
             <Navbar />
           </Fade>
@@ -41,7 +41,7 @@ export function Landing() {
         </Container>
       </div>
 
-      <Container className="red" disableGutters={true} maxWidth={'xl'} style={{ maxWidth: '1449px' }}>
+      <Container className="container" disableGutters={true} maxWidth={'xl'}>
         <MasonryImageList images={itemData} cols={3} src={'main'} />
       </Container>
 

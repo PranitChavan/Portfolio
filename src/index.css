@@ -54,3 +54,8 @@
 body {
   background-color: #09090b;
 }
+
+.container {
+  max-width: 1449px;
+  display: none;
+}
